@@ -37,7 +37,7 @@ const Preview: React.FC<Props> = ({ previewContent, activePageIdx }) => {
   const blocks = previewContent.pages[activePageIdx].blocks;
 
   return (
-    <div className='w-[375px] h-[600px] flex flex-col items-center overflow-scroll items-stretch' style={{ background: previewContent.bgColor }}>
+    <div className='w-[375px] h-[600px] flex flex-col items-center overflow-auto items-stretch' style={{ background: previewContent.bgColor }}>
       {blocks.map((block, idx) => {
         const Component = componentMap[block.type];
         return <Component {...block} key={idx} />;
