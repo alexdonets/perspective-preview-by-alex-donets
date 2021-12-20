@@ -11,17 +11,19 @@ const Pagination: React.FC<Props> = ({ pageCount = 0, activePageIdx, onActivePag
   return (
     <div className='h-6'>
       {pageList.map(pageIdx => {
-        return (
+        return activePageIdx === pageIdx ? (
           <span 
-            className='ml-2 cursor-pointer'
+            className='ml-2 cursor-pointer text-violet-700 text-md font-semibold'
             key={pageIdx}
-            {...(activePageIdx === pageIdx ?
-              { style: { color: 'black' } } :
-              { 
-                onClick: () => { onActivePageIdxChange(pageIdx) }, 
-                style: { color: 'blue', textDecoration: 'underline' }
-              }
-            )}>
+          >
+            {pageIdx + 1}
+          </span>
+        ) : (
+          <span 
+            className='ml-2 cursor-pointer text-slate-500 text-sm hover:text-violet-600 transition-colors duration-150'
+            onClick={() => { onActivePageIdxChange(pageIdx) }}
+            key={pageIdx}
+          >
             {pageIdx + 1}
           </span>
         );

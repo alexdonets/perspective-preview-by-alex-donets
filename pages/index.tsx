@@ -40,7 +40,7 @@ const Home: NextPage = () => {
           Welcome to Perspective Preview 🎉
         </h1>
 
-        <h3 className='h-6 font-semibold'>
+        <h3 className='h-6 font-semibold text-violet-700'>
           {previewData?.name}
         </h3>
 
