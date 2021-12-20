@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface Props {
   text: string;
   color: string;
   align: 'start' | 'end' | 'left' | 'right' | 'center' | 'justify' | 'match-parent';

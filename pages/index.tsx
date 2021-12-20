@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import FileUpload from '../src/components/FileUpload'
 import Preview from '../src/components/Preview'
 import Pagination from '../src/components/Pagination'
@@ -37,12 +35,12 @@ const Home: NextPage = () => {
         <link rel='icon' href='/perspective_logo.ico' />
       </Head>
 
-      <main className='flex flex-col items-center space-y-4 py-12'>
-        <h1 className={styles.title}>
+      <main className='flex flex-col items-center space-y-4 py-4 sm:py-12'>
+        <h1 className='text-2xl'>
           Welcome to Perspective Preview 🎉
         </h1>
 
-        <h3 className='h-6'>
+        <h3 className='h-6 font-semibold'>
           {previewData?.name}
         </h3>
 

@@ -1,8 +1,10 @@
 import React from 'react';
 
-const FileUpload = React.forwardRef<HTMLInputElement, {
+interface Props {
   onChange: (data: any) => void;
-}>((props, ref) => {
+}
+
+const FileUpload = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const fileReader = new FileReader();
 

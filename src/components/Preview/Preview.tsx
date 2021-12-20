@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from '../Button';
-import Image from '../Image';
-import List from '../List';
-import Text from '../Text';
+import Button, { ButtonProps } from '../Button';
+import Image, { ImageProps } from '../Image';
+import List, { ListProps } from '../List';
+import Text, { TextProps } from '../Text';
 
 const componentMap = {
   button: Button,
@@ -14,7 +14,7 @@ const componentMap = {
 type Block = {
   type: 'button' | 'image' | 'list' | 'text';
   [key: string]: string;
-}
+} & ButtonProps & ImageProps & ListProps & TextProps
 
 type Page = {
   blocks: Block[];
@@ -37,7 +37,7 @@ const Preview: React.FC<Props> = ({ previewContent, activePageIdx }) => {
   const blocks = previewContent.pages[activePageIdx].blocks;
 
   return (
-    <div className='w-[375px] h-[600px] flex flex-col items-center overflow-auto items-stretch' style={{ background: previewContent.bgColor }}>
+    <div className='w-[375px] sm:h-[600px] flex flex-col items-center overflow-auto items-stretch' style={{ background: previewContent.bgColor }}>
       {blocks.map((block, idx) => {
         const Component = componentMap[block.type];
         return <Component {...block} key={idx} />;

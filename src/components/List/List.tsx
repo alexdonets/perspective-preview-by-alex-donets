@@ -6,7 +6,7 @@ type ListItem = {
   src: string;
 };
 
-interface Props {
+export interface Props {
   items: ListItem[];
 }
 
