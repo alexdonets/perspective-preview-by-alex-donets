@@ -4,10 +4,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import FileUpload from '../src/components/FileUpload'
+import Preview from '../src/components/Preview'
+import Pagination from '../src/components/Pagination'
 
 const Home: NextPage = () => {
   const [fileUploadBuffer, setFileUploadBuffer] = useState<any>();
   const [previewData, setPreviewData] = useState<any>();
+  const [activePageIdx, setActivePageIdx] = useState<number>(0);
   const inputFile = useRef<HTMLInputElement>(null);
 
   const onFileUploaded = (data: any) => {
@@ -21,6 +24,11 @@ const Home: NextPage = () => {
   const triggerPreview = () => {
     setPreviewData(fileUploadBuffer);
   }
+
+  const onActivePageIdxChange = (newIdx: number) => {
+    setActivePageIdx(newIdx);
+  }
+
   return (
     <div>
       <Head>
@@ -34,9 +42,13 @@ const Home: NextPage = () => {
           Welcome to Perspective Preview 🎉
         </h1>
 
-        <div className='w-[375px] h-[600px] bg-red-400 overflow-x-hidden overflow-y-scroll'>
-          {JSON.stringify(previewData) || ""}
-        </div>
+        <h3 className='h-6'>
+          {previewData?.name}
+        </h3>
+
+        <Preview previewContent={previewData} activePageIdx={activePageIdx} />
+
+        <Pagination pageCount={previewData?.pages?.length} activePageIdx={activePageIdx} onActivePageIdxChange={onActivePageIdxChange} />
 
         <FileUpload onChange={onFileUploaded} ref={inputFile} />
 
