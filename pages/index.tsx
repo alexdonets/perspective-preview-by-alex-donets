@@ -50,7 +50,7 @@ const Home: NextPage = () => {
 
         <FileUpload onChange={onFileUploaded} ref={inputFile} />
 
-        <button className="bg-sky-600 hover:bg-sky-700 h-10 px-5 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline" onClick={triggerPreview}>Preview 🚀</button>
+        <button className='bg-sky-600 hover:bg-sky-700 h-10 px-5 text-indigo-100 transition-colors duration-150 rounded-full focus:shadow-outline' onClick={triggerPreview}>Preview 🚀</button>
 
       </main>
     </div>

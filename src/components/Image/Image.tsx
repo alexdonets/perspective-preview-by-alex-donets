@@ -8,4 +8,6 @@ const Image: React.FC<Props> = ({ src }) => {
   return <img src={src} alt='img' />
 };
 
+Image.displayName = 'Image';
+
 export default Image;

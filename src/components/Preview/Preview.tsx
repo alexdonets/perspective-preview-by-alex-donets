@@ -46,4 +46,6 @@ const Preview: React.FC<Props> = ({ previewContent, activePageIdx }) => {
   );
 };
 
+Preview.displayName = 'Preview';
+
 export default Preview;

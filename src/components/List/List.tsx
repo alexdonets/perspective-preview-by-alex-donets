@@ -23,4 +23,6 @@ const List: React.FC<Props> = ({ items }) => {
   )
 };
 
+List.displayName = 'List';
+
 export default List;

@@ -25,4 +25,6 @@ const FileUpload = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   );
 });
 
+FileUpload.displayName = 'FileUpload';
+
 export default FileUpload;

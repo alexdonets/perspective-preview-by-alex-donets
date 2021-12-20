@@ -29,4 +29,6 @@ const Pagination: React.FC<Props> = ({ pageCount = 0, activePageIdx, onActivePag
     </div>);
 };
 
+Pagination.displayName = 'Pagination';
+
 export default Pagination;

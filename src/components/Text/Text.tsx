@@ -10,4 +10,6 @@ const Text: React.FC<Props> = ({ text, color, align }) => {
   return <p style={{ color, textAlign: align }} className='px-6 py-4'>{text}</p>
 };
 
+Text.displayName = 'Text';
+
 export default Text;
