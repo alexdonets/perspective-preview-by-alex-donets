@@ -16,6 +16,8 @@ const Home: NextPage = () => {
 
   const triggerPreview = () => {
     setPreviewData(fileUploadBuffer);
+    // Reset active page
+    setActivePageIdx(0);
   }
 
   const onActivePageIdxChange = (newIdx: number) => {
