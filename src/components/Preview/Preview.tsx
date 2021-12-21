@@ -27,7 +27,7 @@ const Preview: React.FC<Props> = ({ previewContent, activePageIdx = 0 }) => {
   if (!previewContent) {
     return <div className={`bg-slate-100 w-[375px] h-[600px] shadow-md rounded-md`}/>
   }
-
+  // Select blocks to render on current page
   const blocks = previewContent.pages[activePageIdx].blocks;
 
   return (

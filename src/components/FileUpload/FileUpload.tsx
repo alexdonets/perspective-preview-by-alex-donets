@@ -9,11 +9,12 @@ const FileUpload: React.FC<Props> = ({ onChange }) => {
     const fileReader = new FileReader();
 
     if (!e?.target?.files?.[0]) {
+      // Reset buffer on file reader canceled
       onChange(null);
+    } else {
+      fileReader.readAsText(e?.target?.files?.[0] as Blob || null, 'UTF-8');
     }
   
-    !!e?.target?.files?.[0] && fileReader.readAsText(e?.target?.files?.[0] as Blob || null, 'UTF-8');
-
     fileReader.onload = e => {
       onChange(JSON.parse(e?.target?.result as string));
     };
