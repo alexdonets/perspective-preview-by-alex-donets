@@ -2,21 +2,16 @@ import React, { useState, useRef } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import FileUpload from '../src/components/FileUpload'
-import Preview from '../src/components/Preview'
+import Preview, { PreviewData } from '../src/components/Preview'
 import Pagination from '../src/components/Pagination'
 
 const Home: NextPage = () => {
-  const [fileUploadBuffer, setFileUploadBuffer] = useState<any>();
-  const [previewData, setPreviewData] = useState<any>();
+  const [fileUploadBuffer, setFileUploadBuffer] = useState<PreviewData>();
+  const [previewData, setPreviewData] = useState<PreviewData>();
   const [activePageIdx, setActivePageIdx] = useState<number>(0);
-  const inputFile = useRef<HTMLInputElement>(null);
 
-  const onFileUploaded = (data: any) => {
+  const onFileUploaded = (data: PreviewData) => {
     setFileUploadBuffer(data)
-  }
-
-  const triggerUpload = () => {
-    inputFile?.current?.click();
   }
 
   const triggerPreview = () => {
@@ -44,11 +39,11 @@ const Home: NextPage = () => {
           {previewData?.name}
         </h3>
 
-        <Preview previewContent={previewData} activePageIdx={activePageIdx} />
+        <Preview previewContent={previewData as PreviewData} activePageIdx={activePageIdx} />
 
         <Pagination pageCount={previewData?.pages?.length} activePageIdx={activePageIdx} onActivePageIdxChange={onActivePageIdxChange} />
 
-        <FileUpload onChange={onFileUploaded} ref={inputFile} />
+        <FileUpload onChange={onFileUploaded} />
 
         <button className='bg-violet-700 hover:bg-violet-600 shadow-xl h-10 px-5 text-white transition-colors duration-150 rounded-full focus:shadow-outline' onClick={triggerPreview}>Preview 🚀</button>
 

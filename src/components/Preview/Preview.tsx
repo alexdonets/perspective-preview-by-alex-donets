@@ -11,9 +11,14 @@ const componentMap = {
   text: Text
 }
 
+export interface PreviewData {
+  name: string;
+  bgColor: string;
+  pages: Page[];
+}
+
 type Block = {
   type: 'button' | 'image' | 'list' | 'text';
-  [key: string]: string;
 } & ButtonProps & ImageProps & ListProps & TextProps
 
 type Page = {
@@ -21,11 +26,7 @@ type Page = {
 }
 
 interface Props {
-  previewContent: {
-    name: string;
-    bgColor: string;
-    pages: Page[];
-  };
+  previewContent: PreviewData;
   activePageIdx: number;
 }
 
