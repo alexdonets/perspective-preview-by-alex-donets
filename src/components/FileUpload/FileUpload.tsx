@@ -12,7 +12,7 @@ const FileUpload: React.FC<Props> = ({ onChange }) => {
       onChange(null);
     }
   
-    fileReader.readAsText(e?.target?.files?.[0] as Blob || null, 'UTF-8');
+    !!e?.target?.files?.[0] && fileReader.readAsText(e?.target?.files?.[0] as Blob || null, 'UTF-8');
 
     fileReader.onload = e => {
       onChange(JSON.parse(e?.target?.result as string));
